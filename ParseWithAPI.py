@@ -10,7 +10,7 @@ def parse_xml_endpoint():
         # Receive the XML file as a POST request
         xml_content = request.files['file'].read()
 
-        # Validate the xml
+        # Validate the xml and return if not valid
         validation, msg = validate_xml(xml_content)
         if not validation:
             return jsonify({"data": "", "error": msg})
