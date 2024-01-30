@@ -41,6 +41,15 @@ def pretty_print_xml_elementtree(xml_string):
    # Print the pretty XML
    print(pretty_xml)
 
+
+def validate_xml(xml_file):
+    try:
+        x = ET.fromstring(xml_file)
+        return True, "ok"
+    except Exception as e:
+        return False, f"Invalid xml str(e)"
+
+
 def parse_xml(xml_file, voucher_tag, childs_tags, child_sub_tag, other_tag, fields, parents_fields_na, childs_fields_na, others_fields_na):
     tree = ET.parse(xml_file)
     root = tree.getroot()
